@@ -1,0 +1,28 @@
+@import './var';
+
+%basesize{
+    width:100%;
+    height:100%;
+}
+
+.react-videoplayer{
+    position: relative;
+    @extend %basesize;
+    font-size: 14px;
+    font-family: "Arial","Hiragino Sans GB", \5fae\8f6f\96c5\9ed1, "Helvetica", "sans-serif";
+    color: $fontUnActiveColor;
+    overflow: hidden;
+    background: #000;
+
+    &_video{
+        position: absolute;
+        @extend %basesize;
+        z-index:2;
+        left: 0;
+        top: 0;
+
+        video{
+            @extend %basesize;
+        }
+    }
+}
