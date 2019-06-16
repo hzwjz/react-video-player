@@ -4,6 +4,7 @@
 import React from 'react';
 import ProgressBar from './progressBar';
 import Popover from './popover';
+import VolumeBar from './volumeBar';
 import {util, constant} from 'video-base';
 
 export default class ContrlBar extends React.Component{
@@ -139,8 +140,7 @@ export default class ContrlBar extends React.Component{
                         )}
 
                         <div className="react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_volumebtn">
-                            <i className="react-videoplayer_icon icon-volume"></i>
-                            {/* <div className="m-popover m-popover-volume j-popover-volume"></div> */}
+                            <VolumeBar context={this.props.context}></VolumeBar>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,69 @@
+@import './var';
+
+.react-videoplayer-volumebar{
+    height: 16px;
+
+    &_icon{
+        float: left;
+        margin-right: 8px;
+
+        &:hover{
+            .icon-volume{
+                background-image: $web-sprites-map;
+                background-position: 0 21.8543%;
+            }
+        }
+
+        &.z-close{
+            .icon-volume{
+                background-image: $web-sprites-map;
+                background-position: 0 37.74834%;
+            }
+
+            &:hover{
+                .icon-volume{
+                    background-image: $web-sprites-map;
+                    background-position: 0 45.69536%;
+                }
+            }
+        }
+    }
+
+    &_bar{
+        float: left;
+        position: relative;
+        height: 4px;
+        width: 50px;
+        margin: 6px 0 0 0;
+        cursor: pointer;
+
+        &_backgroundbar{
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background-color: $bgProgressColor;
+        }
+
+        &_progressbar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background-color: $primaryColor;
+        }
+
+        &_dragitem{
+            position: absolute;
+            top: -3px;
+            width: 8px;
+            height: 8px;
+            border: 1px solid $primaryColor;
+            background: #ffffff;
+            border-radius: 100%;
+            cursor: pointer;
+        }
+    }
+}

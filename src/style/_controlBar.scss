@@ -1,6 +1,6 @@
 @import './var';
-@import './icon';
 @import './progressBar';
+@import './volumeBar'; 
 
 .react-videoplayer-ctrbar {
     position: absolute;
@@ -139,35 +139,9 @@
             }
         }
 
-        &_volumebtn{
-            z-index: 1000;
+        // &_volumebtn{
 
-            &:hover{
-                .icon-volume{
-                    background-image: $web-sprites-map;
-                    background-position: 0 21.8543%;
-                }
-
-                .m-popover-volume{
-                    visibility: visible;
-                    opacity: 1;
-                }
-            }
-
-            &.z-close{
-                .icon-volume{
-                    background-image: $web-sprites-map;
-                    background-position: 0 37.74834%;
-                }
-
-                &:hover{
-                    .icon-volume{
-                        background-image: $web-sprites-map;
-                        background-position: 0 45.69536%;
-                    }
-                }
-            }
-        }
+        // }
 
         &_fullscreen:hover{
             .icon-fullscreen{

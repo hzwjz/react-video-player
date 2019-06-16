@@ -16,15 +16,6 @@
         background-color: $bgProgressColor;
     }
 
-    &_placeholder{
-        opacity: 0;
-        position: absolute;
-        left: 0;
-        top: -6px;
-        height: 6px;
-        width: 100%;
-    }
-
     &_progressbar {
         position: absolute;
         left: 0;
@@ -66,15 +57,14 @@
         transition: .1s width,.2s transform;
     }
 
-    &_backgroundbar, &_anchor{
+    &_backgroundbar{
         transition: .2s transform;
     }
 
     &-active, &:hover{
         .react-videoplayer-progress_backgroundbar, 
         .react-videoplayer-progress_progressbar, 
-        .react-videoplayer-progress_bufferbar, 
-        .react-videoplayer-progress_anchor{
+        .react-videoplayer-progress_bufferbar{
             transform: scaleY(1.4);
         }
 
