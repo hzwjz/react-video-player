@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import ProgressBar from './progressBar';
+import Popover from './popover';
 import {util, constant} from 'video-base';
 
 export default class ContrlBar extends React.Component{
@@ -21,6 +22,8 @@ export default class ContrlBar extends React.Component{
         this.clickPause = this._clickPause.bind(this);
         this.clickFullscreen = this._clickFullscreen.bind(this);
         this.clickCancelFullscreen = this._clickCancelFullscreen.bind(this);
+        this.selectLineCallback = this._selectLineCallback.bind(this);
+        this.selectQualityCallback = this._selectQualityCallback.bind(this);
     }
 
     componentDidMount() {
@@ -46,6 +49,15 @@ export default class ContrlBar extends React.Component{
     _clickCancelFullscreen() {
         this.props.context && this.props.context.video.existFullscreen();
     }
+
+    _selectLineCallback(line) {
+        // console.log(line.name);
+        this.props.context && this.props.context.video.changeLine(line.type);
+    }
+
+    _selectQualityCallback(quality){
+        this.props.context && this.props.context.video.changeQuality(quality.quality);
+    }
     
     render(){
         let isPause = false, 
@@ -53,7 +65,10 @@ export default class ContrlBar extends React.Component{
             isFullscreen = false,
             canChangeQuality = false,
             showBar = true,
-            currentTime = '', duration = '', lineName = '', qualityName = '';
+            currentTime = '', duration = '', 
+            line = '', lineName = '', lineList = [],
+            quality = '', qualityName = '', qualityList = [];
+
         if(this.props.context){
             isPause = this.props.context.state ? this.props.context.state == constant.MEDIA_STATE.PAUSE : false;
             isPlaying = this.props.context.state ? this.props.context.state == constant.MEDIA_STATE.PLAYING : false;
@@ -61,10 +76,15 @@ export default class ContrlBar extends React.Component{
             currentTime = this.props.context.currentTime ? util.formatUtil.formatVideoTime(this.props.context.currentTime) : '00:00';
             duration = this.props.context.duration ? util.formatUtil.formatVideoTime(this.props.context.duration) : '00:00';
             lineName = this.props.context.lineName ? this.props.context.lineName : '默认';
+            line = this.props.context.line ? this.props.context.line : '';
+            lineList = this.props.context.videoData ? this.props.context.videoData.lines : [];
+            
+            quality = this.props.context.quality ? this.props.context.quality : null;
+            qualityList = this.props.context.videoData ? this.props.context.videoData.movieItemList : [];
             qualityName = this.props.context.qualityName ? this.props.context.qualityName : '标清';
+            canChangeQuality = qualityList.length > 1;
 
             isFullscreen = this.props.context.fullscreen !== undefined ? this.props.context.fullscreen : false;        
-            canChangeQuality = this.props.context.qualityCount ? this.props.context.qualityCount > 1 : false;
         
             showBar = this.props.context.inRoot;
         }
@@ -93,20 +113,8 @@ export default class ContrlBar extends React.Component{
                         <span className="react-videoplayer-ctrbar_bar_seperator">/</span>
                         <span className="react-videoplayer-ctrbar_bar_duration">{duration}</span>
                     </div>
+
                     <div className="react-videoplayer-ctrbar_bar-right">
-                        <div className="react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_volumebtn">
-                            <i className="react-videoplayer_icon icon-volume"></i>
-                            {/* <div className="m-popover m-popover-volume j-popover-volume"></div> */}
-                        </div>
-                        
-                        {lineName && (<div className="react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_linebtn">
-                            <span>{lineName}</span>
-                        </div>)}
-            
-                        <div className={`react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_qualitybtn ${!canChangeQuality ? 'z-dis': ''}`}>
-                            <span>{qualityName}</span>
-                        </div>
-            
                         {isFullscreen ? 
                             (<div className="react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_notfullscreen" onClick={this.clickCancelFullscreen}>
                                 <i className="react-videoplayer_icon icon-notfullscreen"></i>
@@ -115,6 +123,25 @@ export default class ContrlBar extends React.Component{
                                 <i className="react-videoplayer_icon icon-fullscreen"></i>
                             </div>)
                         }
+                        
+                        <Popover list={qualityList} selectkey="quality" selectname="qualityName" selected={quality} className="react-videoplayer-ctrbar_bar_popwrap" selectCallback={this.selectQualityCallback}>
+                            <div className={`react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_qualitybtn ${!canChangeQuality ? 'z-dis': ''}`}>
+                                <span>{qualityName}</span>
+                            </div>
+                        </Popover>
+
+                        {line && lineList.length > 1 && (
+                            <Popover list={lineList} selectkey="type" selected={line} className="react-videoplayer-ctrbar_bar_popwrap" selectCallback={this.selectLineCallback}>
+                                <div className="react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_linebtn">
+                                    <span>{lineName}</span>
+                                </div>
+                            </Popover>
+                        )}
+
+                        <div className="react-videoplayer-ctrbar_bar_btn react-videoplayer-ctrbar_bar_volumebtn">
+                            <i className="react-videoplayer_icon icon-volume"></i>
+                            {/* <div className="m-popover m-popover-volume j-popover-volume"></div> */}
+                        </div>
                     </div>
                 </div>
             </div>;

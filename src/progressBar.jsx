@@ -14,7 +14,7 @@ export default class ProgressBar extends React.Component{
 
         this.state = {
             active: false,
-            pos: 0
+            pos: 0 // drag pos, not current pos
         };
 
         this.rootRef = React.createRef();
@@ -142,13 +142,13 @@ export default class ProgressBar extends React.Component{
             }
         }
 
-        return <div className={`react-videoplayer_progress ${this.state.active ? 'react-videoplayer_progress-active':''}`} 
+        return <div className={`react-videoplayer-progress ${this.state.active ? 'react-videoplayer-progress-active':''}`} 
                     ref={this.rootRef} 
                     onMouseDown={this.mouseDown}>
-                <div className="react-videoplayer_progress_backgroundbar"></div>
-                <div className="react-videoplayer_progress_bufferbar" style={bufferdPercent}></div>
-                <div className="react-videoplayer_progress_progressbar" style={proressPercent}></div>
-                <div className="react-videoplayer_progress_dragitem" style={dragItemPos} ref={this.dragItemRef}></div>
+                <div className="react-videoplayer-progress_backgroundbar"></div>
+                <div className="react-videoplayer-progress_bufferbar" style={bufferdPercent}></div>
+                <div className="react-videoplayer-progress_progressbar" style={proressPercent}></div>
+                <div className="react-videoplayer-progress_dragitem" style={dragItemPos} ref={this.dragItemRef}></div>
             </div>
     }
 }

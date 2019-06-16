@@ -1,0 +1,65 @@
+// TODO 加前缀
+@import "./var";
+
+.react-videoplayer-popover {
+    position: relative;
+    display: inline-block;
+
+    &_list {
+        box-sizing: border-box;
+        visibility: hidden;
+        opacity:0;
+        position: absolute;
+        top: auto;
+        bottom: 47px;
+        left: 50%;
+        // padding: 8px 0;
+        margin-left: -32px;
+        width: 64px;
+        line-height: 0;
+        background: $bgBarColor;
+        border-radius: 2px;
+        cursor: auto;
+        transition: .3s opacity;
+
+        &.z-show{
+            visibility: visible;
+            opacity: 1;
+        }
+
+        &_ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        &_li{
+            position: relative;
+            margin: 4px;
+            padding: 0 8px;
+            text-align: left;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+            color:#999;
+            cursor: pointer;
+
+            &:hover{
+                background-color: $primaryColor;
+                color:$fontActiveColor;
+            }
+
+            &.z-sel{
+                color: $fontActiveColor;
+
+                &:hover{
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+
+    &_btn{
+        display: inline-block;
+    }
+}

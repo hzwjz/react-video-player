@@ -73,28 +73,33 @@
             text-decoration: none;
         }
 
-        &-left, &-right {
+        &-left {
             height: 100%;
             float: left;
 
-            > * {
-                font-size: 14px;
-                margin-top: 6px;
-                vertical-align: top;
+            .react-videoplayer-ctrbar_bar_btn{
+                float: left;
             }
         }
 
         &-right {
+            height: 100%;
             float: right;
+
+            .react-videoplayer-ctrbar_bar_btn{
+                float: right;
+            }
         }
 
         &_btn{
             position: relative;
-            display: inline-block;
+            float: right;
             padding: 4px 10px;
+            margin-top: 6px;
             height: 16px;
             line-height: 16px;
             border-radius: 2px;
+            font-size: 14px;
             text-align: center;
             color: $fontUnActiveColor;
             cursor: pointer;
@@ -103,14 +108,10 @@
                 background-color: #222;
                 color: $fontActiveColor;
             }
+        }
 
-            &.z-show{
-                display: inline-block;
-            }
-
-            &.z-hide{
-                display: none;
-            }
+        &_popwrap{
+            float: right;
         }
 
         &_linebtn , &_qualitybtn{
@@ -202,28 +203,4 @@
             color: $fontUnActiveColor;
         }
     }
-
-    // /* popover样式自定义 */
-    // .m-popover{
-    //     z-index: 6;
-    // }
-
-    // .m-popover-volume{
-    //     padding: 8px 16px;
-    //     width: auto;
-    // }
-
-    // .m-popover-quality {
-    //     width: 64px;
-    //     li{
-    //         width: 60px;
-    //     }
-    // }
-
-    // .m-popover-cdn{
-    //     width: 128px;
-    //     &.m-popover-cdn-one_column{
-    //         width: 64px;
-    //     }
-    // }
 }

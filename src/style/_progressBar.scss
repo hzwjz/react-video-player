@@ -1,6 +1,6 @@
 @import './var';
 
-.react-videoplayer_progress{
+.react-videoplayer-progress{
     position: relative;
     height: 4px;
     cursor: pointer;
@@ -71,15 +71,14 @@
     }
 
     &-active, &:hover{
-    // &-active{
-            .react-videoplayer_progress_backgroundbar, 
-        .react-videoplayer_progress_progressbar, 
-        .react-videoplayer_progress_bufferbar, 
-        .react-videoplayer_progress_anchor{
+        .react-videoplayer-progress_backgroundbar, 
+        .react-videoplayer-progress_progressbar, 
+        .react-videoplayer-progress_bufferbar, 
+        .react-videoplayer-progress_anchor{
             transform: scaleY(1.4);
         }
 
-        .react-videoplayer_progress_dragitem{
+        .react-videoplayer-progress_dragitem{
             visibility: visible;
             opacity: 1;
             transform: scale(1.1);
