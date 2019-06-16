@@ -1,0 +1,55 @@
+@import './var';
+@import './icon';
+
+.react-videoplayer-cover{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor:pointer;
+    overflow:hidden;
+    text-align:center;
+    background:$bgColor;
+    z-index:99;  
+
+    &_cimg{
+        position: absolute;
+        top:50%;
+        left:50%;
+    }
+
+    &_playbtnwrap{
+        position: absolute;
+        width:90px;
+        height:90px;
+        top:50%;
+        left:50%;
+        margin:-45px 0 0 -45px;
+
+        &_cbg{
+            opacity:0.8;
+            background:$bgColor;
+            width:100%;
+            height:100%;
+            border-radius:5px;
+        }
+
+        &_playbtn{
+            position: absolute;
+            top:29px;
+            left:33px;
+            width: 24px;
+            height: 32px;
+            background-image: $web-sprites-map;
+            background-position: 0 87.7551%;
+        }
+        
+        &:hover{
+            .react-videoplayer-cover_playbtnwrap_playbtn{
+                background-image: $web-sprites-map;
+                background-position: 0 76.87075%;
+            }
+        }
+    }
+}

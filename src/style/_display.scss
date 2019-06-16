@@ -1,0 +1,128 @@
+@import './var';
+@import './icon';
+
+.react-videoplayer-display{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    cursor:pointer;
+    z-index:4;
+
+    &_bbg{
+        width: 100%;
+        height: 100%;
+        opacity:0;
+        background:#000;
+    }
+
+    &_statewrap{
+        position: absolute;
+        width:90px;
+        height:90px;
+        top:50%;
+        left:50%;
+        margin:-45px 0 0 -45px;
+    }
+    
+    &_sbg{
+        opacity:0.8;
+        background:$bgColor;
+        width:100%;  
+        height:100%;
+        border-radius:5px;
+    }
+
+    // &_pause{
+    //     display:none;
+    //     top:29px;
+    //     left:33px;
+    //     width: 24px;
+    //     height: 32px;
+    //     background-image: $web-sprites-map;
+    //     background-position: 0 87.7551%;
+    // }
+
+    &_buffering{
+        top:27px;
+        left:27px;
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        background-image: $web-sprites-map;
+        background-position: 0 100%;
+    }
+
+    &_replay{
+        width:36px;
+        top:15px;
+        left:27px;
+        position: absolute;
+
+        &_ic{
+            width: 36px;
+            height: 32px;
+            background-image: $web-sprites-map;
+            background-position: 0 55.10204%;
+        }
+
+        &_txt{
+            color:$fontUnActiveColor;
+            text-align:center;
+            margin-top:9px;
+        }
+    }
+
+    &:hover{
+        // .react-videoplayer-display_pause{
+        //     background-image: $web-sprites-map;
+        //     background-position: 0 76.87075%;
+        // }
+
+        .react-videoplayer-display_replay{
+            &_ic{
+                background-image: $web-sprites-map;
+                background-position: 0 65.98639%;
+            }
+            
+            &_txt{
+                color:$fontActiveColor;
+            }
+        }
+    }
+}
+
+.react-videoplayer-display_acloading-enter-active{
+    animation: react-videoplayer-circle-loading .4s infinite step-end;
+}
+
+@keyframes react-videoplayer-circle-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    12.5% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(90deg);
+    }
+    37.5% {
+        transform: rotate(135deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    62.5% {
+        transform: rotate(225deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    87.5% {
+        transform: rotate(315deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

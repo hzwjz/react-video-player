@@ -1,0 +1,87 @@
+@import './var';
+
+.react-videoplayer_progress{
+    position: relative;
+    height: 4px;
+    cursor: pointer;
+    transition: .5s bottom;
+    z-index: 1;
+
+    &_backgroundbar{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $bgProgressColor;
+    }
+
+    &_placeholder{
+        opacity: 0;
+        position: absolute;
+        left: 0;
+        top: -6px;
+        height: 6px;
+        width: 100%;
+    }
+
+    &_progressbar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background-color: $primaryColor;
+    }
+
+    &_bufferbar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background-color: $bgLightColor;
+    }
+
+    &_dragitem{
+        transition: .2s opacity,.2s transform,0.1s left;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: -3px;
+        width: 8px;
+        height: 8px;
+        border: 1px solid $primaryColor;
+        background: #ffffff;
+        border-radius: 100%;
+        cursor: pointer;
+        z-index: 1;
+
+        &.z-ban{
+            display: none !important;
+        }
+    }
+
+    &_bufferbar, &_progressbar{
+        transition: .1s width,.2s transform;
+    }
+
+    &_backgroundbar, &_anchor{
+        transition: .2s transform;
+    }
+
+    &:hover{
+        .react-videoplayer_progress_backgroundbar, 
+        .react-videoplayer_progress_progressbar, 
+        .react-videoplayer_progress_bufferbar, 
+        .react-videoplayer_progress_anchor{
+            transform: scaleY(1.4);
+        }
+
+        .react-videoplayer_progress_dragitem{
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+}

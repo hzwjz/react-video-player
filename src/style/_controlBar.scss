@@ -1,0 +1,229 @@
+@import './var';
+@import './icon';
+@import './progressBar';
+
+.react-videoplayer-ctrbar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    letter-spacing: -0.34px;
+    z-index: 10;
+
+    &.z-show{
+        .react-videoplayer-ctrbar_bar{
+            bottom: 0;
+        }
+
+        .react-videoplayer-ctrbar_bigplaybtn{
+            bottom: 55px;
+        }
+
+        .react-videoplayer-ctrbar_pbw{
+            bottom: 36px;
+        }
+    }
+
+    &_bigplaybtn{
+        position: absolute;
+        left:20px;
+        bottom: 19px;
+        width: 60px;
+        height: 32px;
+        padding: 14px 0;
+        text-align: center;
+        border-radius:5px;
+        background-color: rgba(0,0,0,.8);
+        transition: .5s bottom;
+
+        .icon-big_play_btn{
+            &:hover{
+                background-image: $web-sprites-map;
+                background-position: 0 76.87075%;
+            }
+        }
+
+        &.z-show{
+            display: block;
+        }
+    }
+
+    &_pbw{
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        transition: bottom .5s;
+    }
+
+    &_bar {
+        bottom: -36px;
+        transition: bottom .5s;
+        box-sizing: border-box;
+        position: relative;
+        height: 36px;
+        line-height: 36px;
+        background-color: $bgBarColor;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+
+        a:active, a:hover, a:visited, a:link {
+            text-decoration: none;
+        }
+
+        &-left, &-right {
+            height: 100%;
+            float: left;
+
+            > * {
+                font-size: 14px;
+                margin-top: 6px;
+                vertical-align: top;
+            }
+        }
+
+        &-right {
+            float: right;
+        }
+
+        &_btn{
+            position: relative;
+            display: inline-block;
+            padding: 4px 10px;
+            height: 16px;
+            line-height: 16px;
+            border-radius: 2px;
+            text-align: center;
+            color: $fontUnActiveColor;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #222;
+                color: $fontActiveColor;
+            }
+
+            &.z-show{
+                display: inline-block;
+            }
+
+            &.z-hide{
+                display: none;
+            }
+        }
+
+        &_linebtn , &_qualitybtn{
+            &.z-dis {
+                color: $fontDisabledColor; 
+                cursor: not-allowed;
+                &:hover {
+                    color: $fontDisabledColor;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        &_playbtn:hover{
+            .icon-play{
+                background-image: $web-sprites-map;
+                background-position: 100% 21.29032%;
+            }
+        }
+
+        &_pausebtn:hover{
+            .icon-pause{
+                background-image: $web-sprites-map;
+                background-position: 0 10.32258%;
+            }
+        }
+
+        &_volumebtn{
+            z-index: 1000;
+
+            &:hover{
+                .icon-volume{
+                    background-image: $web-sprites-map;
+                    background-position: 0 21.8543%;
+                }
+
+                .m-popover-volume{
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+
+            &.z-close{
+                .icon-volume{
+                    background-image: $web-sprites-map;
+                    background-position: 0 37.74834%;
+                }
+
+                &:hover{
+                    .icon-volume{
+                        background-image: $web-sprites-map;
+                        background-position: 0 45.69536%;
+                    }
+                }
+            }
+        }
+
+        &_fullscreen:hover{
+            .icon-fullscreen{
+                background-image: $web-sprites-map;
+                background-position: 0 16.12903%;
+            }
+        }
+
+        &_notfullscreen:hover{
+            .icon-notfullscreen{
+                background-image: $web-sprites-map;
+                background-position: 0 0;
+            }
+        }
+
+        &_playbtn, &_pausebtn, &_fullscreen, &_notfullscreen, &_volumebtn{
+            &:hover{
+                background-color: transparent;
+            }
+        }
+
+        &_currenttime {
+            margin-left: 10px;
+            color: $fontActiveColor;
+        }
+
+        &_seperator {
+            margin: 0 4px;
+            color: $fontUnActiveColor;
+        }
+
+        &_duration {
+            color: $fontUnActiveColor;
+        }
+    }
+
+    // /* popover样式自定义 */
+    // .m-popover{
+    //     z-index: 6;
+    // }
+
+    // .m-popover-volume{
+    //     padding: 8px 16px;
+    //     width: auto;
+    // }
+
+    // .m-popover-quality {
+    //     width: 64px;
+    //     li{
+    //         width: 60px;
+    //     }
+    // }
+
+    // .m-popover-cdn{
+    //     width: 128px;
+    //     &.m-popover-cdn-one_column{
+    //         width: 64px;
+    //     }
+    // }
+}
