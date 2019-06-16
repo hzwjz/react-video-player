@@ -28,10 +28,6 @@ export default class Player extends React.Component{
         this.rootRef = React.createRef();
         this.videoRef = React.createRef();
 
-        // this.getRootDom = function(){
-        //     return this.rootRef.current;
-        // }.bind(this);
-
         this.mouseMove = this._mouseMove.bind(this);
         this.mouseLeave = this._mouseLeave.bind(this);
     }

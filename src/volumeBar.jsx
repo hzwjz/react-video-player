@@ -106,7 +106,6 @@ export default class VolumeBar extends React.Component{
         let proressPercent = {width:0}, dragItemPos = {left:-dragItemWidth/2 + 'px'};
             
         if(this.props.context){
-            console.log('this.props.context.volume:'+this.props.context.volume);
             muted = this.props.context.mute;
 
             if(!muted){
