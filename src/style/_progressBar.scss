@@ -70,8 +70,9 @@
         transition: .2s transform;
     }
 
-    &:hover{
-        .react-videoplayer_progress_backgroundbar, 
+    &-active, &:hover{
+    // &-active{
+            .react-videoplayer_progress_backgroundbar, 
         .react-videoplayer_progress_progressbar, 
         .react-videoplayer_progress_bufferbar, 
         .react-videoplayer_progress_anchor{

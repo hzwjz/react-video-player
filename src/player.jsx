@@ -77,12 +77,16 @@ export default class Player extends React.Component{
     }
 
     _mouseMove() {
-        console.log('player:_mouseMove:');
-        this.setState({inRoot:true});
+        if(!this.state.inRoot){
+            this.setState({inRoot:true});
+        }
+        
     }
 
     _mouseLeave() {
-        this.setState({inRoot:false});
+        if(this.state.inRoot){
+            this.setState({inRoot:false});
+        }
     }
 
     render() {
